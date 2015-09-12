@@ -1,40 +1,41 @@
 var express = require('express');
 var router = express.Router();
 var pg = require('pg');
-var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/example_database';
+var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/task_database';
 
 router.post('/todos', function(req, res) {
     var results = [];
 
-    // Grab data from http request
-    var data = {text: req.body.text, complete: false};
+        // Grab data from http request
+        var data = {text: req.body.text, complete: false};
+        // Get a Postgres client from the connection pool
+        pg.connect(connectionString, function (err, client, done) {
 
-    // Get a Postgres client from the connection pool
-    pg.connect(connectionString, function(err, client, done) {
+            if(req.body.text) {
+                // SQL Query > Insert Data
+                client.query("INSERT INTO items(text, complete) values($1, $2)", [data.text, data.complete]);
+            }
+            // SQL Query > Select Data
+            var query = client.query("SELECT * FROM items ORDER BY id ASC");
 
-        // SQL Query > Insert Data
-        client.query("INSERT INTO items(text, complete) values($1, $2)", [data.text, data.complete]);
+            // Stream results back one row at a time
+            query.on('row', function (row) {
+                results.push(row);
+            });
 
-        // SQL Query > Select Data
-        var query = client.query("SELECT * FROM items ORDER BY id ASC");
+            // After all data is returned, close connection and return results
+            query.on('end', function () {
+                client.end();
+                return res.json(results);
+            });
 
-        // Stream results back one row at a time
-        query.on('row', function(row) {
-            results.push(row);
+            // Handle Errors
+            if (err) {
+                console.log(err);
+            }
+
         });
 
-        // After all data is returned, close connection and return results
-        query.on('end', function() {
-            client.end();
-            return res.json(results);
-        });
-
-        // Handle Errors
-        if(err) {
-            console.log(err);
-        }
-
-    });
 });
 
 router.get('/todos', function(req, res) {

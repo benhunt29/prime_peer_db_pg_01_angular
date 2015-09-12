@@ -1,5 +1,5 @@
 var pg = require('pg');
-var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/example_database';
+var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/task_database';
 
 var client = new pg.Client(connectionString);
 client.connect();
