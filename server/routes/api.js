@@ -31,6 +31,18 @@ router.post('/todos', function(req, res) {
                 });
             }
         });
+    } else{
+        Task.find({}, function (err, tasks) {
+            if (err) {
+                console.log(err);
+                next(err);
+            } else {
+                tasks.forEach(function (task) {
+                    results.push(task);
+                });
+                res.json(results);
+            }
+        });
     }
 });
 

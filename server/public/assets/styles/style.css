@@ -1,13 +1,2 @@
-body {
-    background-color: #080808;
-    color: #111111;
-}
-
-.well {
-    background-color: #262626;
-    color: #dddddd;
-}
-
-.done-true {
-    text-decoration: line-through;
-}
+body{background-color:#080808;color:#111}.well{background-color:#262626;color:#ddd}.done-true{text-decoration:line-through}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxLQUNJLGlCQUFrQixRQUNsQixNQUFPLEtBR1gsTUFDSSxpQkFBa0IsUUFDbEIsTUFBTyxLQUdYLFdBQ0ksZ0JBQWlCIiwiZmlsZSI6InN0eWxlLmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJvZHkge1xuICAgIGJhY2tncm91bmQtY29sb3I6ICMwODA4MDg7XG4gICAgY29sb3I6ICMxMTExMTE7XG59XG5cbi53ZWxsIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjYyNjI2O1xuICAgIGNvbG9yOiAjZGRkZGRkO1xufVxuXG4uZG9uZS10cnVlIHtcbiAgICB0ZXh0LWRlY29yYXRpb246IGxpbmUtdGhyb3VnaDtcbn0iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0= */

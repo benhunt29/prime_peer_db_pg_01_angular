@@ -36,7 +36,6 @@ app.controller('TasksController',['$scope','$http', function($scope,$http){
                 })
         },
         updateTask: function(id,task,complete){
-            console.log(id, task, complete);
             var updatedTask = {
                 text: task,
                 complete: !complete,
