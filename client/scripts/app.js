@@ -10,7 +10,7 @@ app.controller('TasksController',['$scope','$http', function($scope,$http){
             $http.get('/api/todos').
                 then(function(response){
                     //update tasks list with current tasks in database
-                    updateTaskList(response.data)
+                    updateTaskList(response.data);
                 });
         },
         //add tasks to database
@@ -21,7 +21,7 @@ app.controller('TasksController',['$scope','$http', function($scope,$http){
             $http.post('/api/todos',$scope.newTask).
                 then(function(response){
                     //update tasks list with current tasks in database
-                    updateTaskList(response.data)
+                    updateTaskList(response.data);
                 });
             //set text area to be blank after post
             $scope.newTask = '';
@@ -32,18 +32,20 @@ app.controller('TasksController',['$scope','$http', function($scope,$http){
             $http.delete('/api/todos/'+id).
                 then(function(response){
                     //update tasks list with current tasks in database
-                    updateTaskList(response.data)
+                    updateTaskList(response.data);
                 })
         },
         updateTask: function(id,task,complete){
+            console.log(id, task, complete);
             var updatedTask = {
                 text: task,
-                complete: !complete
+                complete: !complete,
+                _id: id
             };
-            $http.put('/api/todos/'+id,updatedTask).
+            $http.put('/api/todos',updatedTask).
                 then(function(response){
                     //update tasks list with current tasks in database
-                    updateTaskList(response.data)
+                    updateTaskList(response.data);
                 })
         }
     };

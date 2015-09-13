@@ -27,8 +27,8 @@
 
     <div id="someContainer" class="container">
         <div class = "task well col-md-3" ng-repeat = 'task in tasks.taskList'>
-            <p class = 'lead done-{{task.complete}}' ng-click="tasks.updateTask(task.id,task.text,task.complete)" ng-model="task.complete">{{task.text}}</p>
-            <button class='btn btn-danger delete' ng-click="tasks.deleteTask(task.id)">X</button>
+            <p class = 'lead done-{{task.complete}}' ng-click="tasks.updateTask(task._id,task.text,task.complete)" ng-model="task.complete">{{task.text}}</p>
+            <button class='btn btn-danger delete' ng-click="tasks.deleteTask(task._id)">X</button>
         </div>
     </div>
 
