@@ -1,4 +1,4 @@
-# Prime Peer - Databases PG (SQL)
+# Prime Peer - Databases PG (SQL) Refactored to use Angular
 
 Hello everyone! Welcome to this 'challenge'.
 In this one, you will not be writing any code (unless you want to), you will actually be learning from a build 
